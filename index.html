@@ -1,15 +1,4 @@
-<?php
-    session_start();
-    include_once('config.php');
-    if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true))
-    {
-        unset ($_SESSION["email"]);
-        unset ($_SESSION["senha"]);
-        header('Location: login.php');
-    }
-    $logado = $_SESSION['email'];
 
-?>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -69,23 +58,10 @@ nav a {
 <body>
 
   <header class="topo">
-  <img src="../image/Logo.png" class="logo" alt="Logo" width="120px" height="120px">
+  <img src="image/Logo.png" class="logo" alt="Logo" width="120px" height="120px">
 
   <nav>
-    <ul>
-    <?php
-                    if($logado == "lucasgsmoretto19@gmail.com"){
-                        echo '<li><a href="cadastro_vagas.php" class="botao-login" id="cadastro">Cadastrar Vagas</a></li>';
-                    }
-
-                ?>
-                <?php
-                    if($logado == "lucasgsmoretto19@gmail.com"){
-                        echo '<li><a href="cadastro_vagas.php" class="botao-cadastro" id="cadastro">Apagar Vagas</a></li>';
-                    }
-
-                ?>
-                
+    <ul> 
       <li class="menu-container">
         <button class="hamburguer-icon" onclick="toggleMenu()">
           <i class="fas fa-bars"></i>
@@ -123,7 +99,7 @@ nav a {
   </div>
 
   <div class="imagem-lateral">
-    <img src="../image/pantera-principal.png" alt="...">
+    <img src="image/pantera-principal.png" alt="...">
   </div>
 </div>
 
@@ -131,7 +107,7 @@ nav a {
 <h2 class="titulo-container">Sobre a Empresa</h2>
   <div class="container-sobre">
     <div class="imagem-sobre">
-      <img src="../image/pantera-segundo.png" alt="Pessoa com currículo">
+      <img src="image/pantera-segundo.png" alt="Pessoa com currículo">
     </div>
 
 
@@ -158,7 +134,7 @@ nav a {
 <h2 class="titulo-container">O que você precisa?</h2>
 <div class="container">
         <div class="custom-card">
-            <img src="../image/imagem-predio.png" alt="Imagem de Oportunidades de Estágio">
+            <img src="image/imagem-predio.png" alt="Imagem de Oportunidades de Estágio">
             <div class="card-content">
                 <h2 class="card-title">Oportunidades de Estágio para Alunos ETEC</h2>
                 <p class="card-description"><strong>   Quer começar sua carreira com o pé direito?</strong><br>
@@ -166,7 +142,7 @@ Encontre vagas de estágio exclusivas para alunos e ex-alunos da ETEC. Conquiste
             </div>
         </div>
         <div class="custom-card">
-            <img src="../image/imagem-pessoas.png" alt="Imagem de Currículo Online">
+            <img src="image/imagem-pessoas.png" alt="Imagem de Currículo Online">
             <div class="card-content">
                 <h2 class="card-title">Crie seu Currículo Online com CLTEC</h2>
                 <p class="card-description"><strong>  Monte seu currículo em minutos! </strong><br>
@@ -189,3 +165,4 @@ Com o CLTEC, você cria um currículo profissional online, ideal para conquistar
 </script>
 </body>
 </html>
+
