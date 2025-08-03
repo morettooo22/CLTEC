@@ -1,0 +1,191 @@
+<?php
+    session_start();
+    include_once('config.php');
+    if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true))
+    {
+        unset ($_SESSION["email"]);
+        unset ($_SESSION["senha"]);
+        header('Location: login.php');
+    }
+    $logado = $_SESSION['email'];
+
+?>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>ETEC Vagas</title>
+  <link rel="stylesheet" href="style-home.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  <style>
+    nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.botao-cadastro {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #d32f2f;
+  color: white;
+  padding: 8px 25px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+.botao-login {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #1f1f1f;
+  color: white;
+  padding: 8px 25px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+.botao-cadastro, .botao-login {
+  transition: 0.3s ease-in-out;
+}
+
+.botao-cadastro:hover {
+  background-color: #b71c1c;
+}
+
+.botao-login:hover {
+  background-color: #000;
+}
+
+  </style>
+</head>
+<body>
+
+  <header class="topo">
+  <img src="../image/Logo.png" class="logo" alt="Logo" width="120px" height="120px">
+
+  <nav>
+    <ul>
+    <?php
+                    if($logado == "lucasgsmoretto19@gmail.com"){
+                        echo '<li><a href="cadastro_vagas.php" class="botao-login" id="cadastro">Cadastrar Vagas</a></li>';
+                    }
+
+                ?>
+                <?php
+                    if($logado == "lucasgsmoretto19@gmail.com"){
+                        echo '<li><a href="cadastro_vagas.php" class="botao-cadastro" id="cadastro">Apagar Vagas</a></li>';
+                    }
+
+                ?>
+                
+      <li class="menu-container">
+        <button class="hamburguer-icon" onclick="toggleMenu()">
+          <i class="fas fa-bars"></i>
+          <span class="menu-text">Menu</span>
+        </button>
+        <div class="dropdown-menu" id="dropdownMenu">
+          <a href="vagas.php">Vagas de emprego</a>
+          <a href="curriculo/index.html">Criar curriculo</a>
+          <a href="contato.html">sobre</a>
+        </div>
+      </li>
+      <li><a href="sair.php" class="botao-cadastro">Sair</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+
+
+  <div class="area-azul">
+  <div class="conteudo-esquerda">
+    <h1>Explore o site de vagas de emprego para alunos da ETEC!</h1>
+    <p>Faça sua pesquisa e veja as melhores opções de vagas do site de empregos</p>
+
+    <div class="caixa-busca">
+      <label for="vaga">Que vaga você procura?</label>
+      <p class="exemplo">Exemplo: auxiliar administrativo são paulo</p>
+
+      <div class="inputs">
+        <input type="text" placeholder="🔍 Cargo ou palavra-chave">
+        <input type="text" placeholder="📍 Localização">
+        <button>🔍 Procurar vagas</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="imagem-lateral">
+    <img src="../image/pantera-principal.png" alt="...">
+  </div>
+</div>
+
+<section class="sobre-cltec">
+<h2 class="titulo-container">Sobre a Empresa</h2>
+  <div class="container-sobre">
+    <div class="imagem-sobre">
+      <img src="../image/pantera-segundo.png" alt="Pessoa com currículo">
+    </div>
+
+
+    <div class="texto-sobre">
+      <p><strong>CLtec</strong> é uma plataforma moderna que ajuda você a criar currículos profissionais de forma rápida, bonita e eficiente. Nosso foco é facilitar o acesso ao mercado de trabalho com ferramentas simples e funcionais.</p>
+
+      <h3>Por que escolher a CLtec?</h3>
+      <ul>
+  <li><i class="fas fa-file-alt"></i> Crie seu próprio currículo</li>
+  <li><i class="fas fa-briefcase"></i> Vagas de emprego</li>
+  <li><i class="fas fa-eye"></i> Visualização em tempo real</li>
+  <li><i class="fas fa-file-pdf"></i> Exportação para PDF</li>
+</ul>
+
+
+      <h3>Nossa Missão</h3>
+      <p>"Oferecer a todos a oportunidade de apresentar o melhor de si no mercado de trabalho, com um currículo bonito, funcional e acessível."</p>
+    </div>
+
+  </div>
+</section>
+
+<div class="linha"></div>
+<h2 class="titulo-container">O que você precisa?</h2>
+<div class="container">
+        <div class="custom-card">
+            <img src="../image/imagem-predio.png" alt="Imagem de Oportunidades de Estágio">
+            <div class="card-content">
+                <h2 class="card-title">Oportunidades de Estágio para Alunos ETEC</h2>
+                <p class="card-description"><strong>   Quer começar sua carreira com o pé direito?</strong><br>
+Encontre vagas de estágio exclusivas para alunos e ex-alunos da ETEC. Conquiste experiência em áreas técnicas, administrativas e muito mais!</p>
+            </div>
+        </div>
+        <div class="custom-card">
+            <img src="../image/imagem-pessoas.png" alt="Imagem de Currículo Online">
+            <div class="card-content">
+                <h2 class="card-title">Crie seu Currículo Online com CLTEC</h2>
+                <p class="card-description"><strong>  Monte seu currículo em minutos! </strong><br>
+Com o CLTEC, você cria um currículo profissional online, ideal para conquistar oportunidades de estágio e emprego. Simples, rápido e feito para você da ETEC.</p>
+            </div>
+        </div>
+    </div>
+    <script>
+  function toggleMenu() {
+    const menu = document.getElementById("dropdownMenu");
+    menu.classList.toggle("show");
+  }
+
+  // Fecha o menu se clicar fora
+  window.onclick = function(event) {
+    if (!event.target.closest('.menu-container')) {
+      document.getElementById("dropdownMenu").classList.remove("show");
+    }
+  }
+</script>
+</body>
+</html>
